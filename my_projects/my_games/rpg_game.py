@@ -1,10 +1,10 @@
 import random
 
 # Define the player's attributes
-player = {'name': 'Player', 'health': 100, 'attack': 10, 'defense': 5, 'current_room': 'hallway'}
+player = {'name': 'Player', 'health': 100, 'attack': random.randint(1, 20), 'defense': 5, 'current_room': 'hallway'}
 
 # Define the enemy's attributes
-enemy = {'name': 'Enemy', 'health': 50, 'attack': 5, 'defense': 2, 'current_room': 'hallway'}
+enemy = {'name': 'Enemy', 'health': 50, 'attack': random.randint(1, 20), 'defense': 5, 'current_room': 'hallway'}
 
 # Define the rooms and their connections
 rooms = {
@@ -66,7 +66,7 @@ def move(direction):
         print(rooms[new_room]['description'])
         if new_room == enemy['current_room']:
             print('You encounter the enemy!')
-            return False
+            return True
     else:
         print('You cannot go that way.')
     return True
