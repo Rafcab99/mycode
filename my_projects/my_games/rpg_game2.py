@@ -1,10 +1,10 @@
 import random
 
 # Define the player's attributes
-player = {'name': 'Player', 'health': 100, 'attack': random.randint(1, 30), 'defense': 5, 'current_room': 'hallway'}
+player = {'name': 'Player', 'health': 100, 'attack': 10, 'defense': 5, 'current_room': 'hallway'}
 
 # Define the enemy's attributes
-enemy = {'name': 'Enemy', 'health': 50, 'attack': random.randint(1, 30), 'defense': 5, 'current_room': 'kitchen'}
+enemy = {'name': 'Enemy', 'health': 50, 'attack': 5, 'defense': 5, 'current_room': 'living room'}
 
 # Define the rooms and their connections
 rooms = {
@@ -28,7 +28,7 @@ rooms = {
 
 # Define a function for attacking
 def attack(attacker, defender):
-    damage = attacker['attack'] - defender['defense']
+    damage = random.randint(1, 20) + attacker['attack'] - defender['defense']
     if damage < 0:
         damage = 0
     defender['health'] -= damage
@@ -71,6 +71,7 @@ def move(direction):
         print('You cannot go that way.')
     return True
 
+# Define a function for enemy movement
 def move_enemy():
     current_room = enemy['current_room']
     possible_directions = list(rooms[current_room]['connections'].keys())
@@ -84,6 +85,7 @@ def move_enemy():
     return True
 
 # Start the game
+
 print('Welcome to the RPG game!')
 print(rooms[player['current_room']]['description'])
 while True:
@@ -93,8 +95,8 @@ while True:
             break
     elif command == 'move':
         direction = input('Which direction would you like to go? (north/south/east/west) ')
+        move_enemy()
         if not move(direction):
             break
     else:
         print('Invalid command.')
-
