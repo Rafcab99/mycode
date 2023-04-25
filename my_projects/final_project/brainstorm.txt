@@ -1,7 +1,0 @@
-Madlib idea
-Write a sotry where the user inputs nouns and adjectives to fill in blanks. After completetion of the story, the file will be copied with their inputs and saved in their home directory. 
-
-Guess the Number
-Planning to have the script itself guess the users number between 1-50. Really get into their head and see how well that can work. The user will input ranges for the script to figure out their number. (maybe work as a 20 questions game instead)
-
-
